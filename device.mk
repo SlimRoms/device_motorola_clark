@@ -70,6 +70,10 @@ PRODUCT_CHARACTERISTICS := default
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
 
+## CMActions
+PRODUCT_PACKAGES += \
+    CMActions
+
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     libqsap_sdk \
@@ -216,7 +220,7 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf \
     wpa_supplicant_overlay.conf \
-    p2p_supplicant_overlay.conf \
+    p2p_supplicant_overlay.conf
 
 
 PRODUCT_COPY_FILES += \
