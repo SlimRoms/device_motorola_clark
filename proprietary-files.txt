@@ -349,22 +349,10 @@ vendor/lib/libvoice-svc.so
 
 
 # GPS
--app/MotGeoFenceSvc/MotGeoFenceSvc.apk
-bin/gpsone_daemon
 bin/loc_launcher
-etc/permissions/com.qualcomm.location.xml
-etc/gps.conf
-etc/izat.conf
-etc/quipc.conf
-etc/sap.conf
-vendor/lib/libalarmservice_jni.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
-vendor/lib/libloc_ext.so
-vendor/lib/liblocationservice.so
-vendor/lib/libquipc_os_api.so
-vendor/lib/libulp2.so
 lib/libgps.utils.so
 lib64/libgps.utils.so
 lib/libloc_core.so
@@ -375,17 +363,9 @@ lib/libloc_api_v02.so
 lib64/libloc_api_v02.so
 lib/libloc_ds_api.so
 lib64/libloc_ds_api.so
-vendor/lib64/libalarmservice_jni.so
 vendor/lib64/libgeofence.so
 vendor/lib64/libizat_core.so
 vendor/lib64/liblbs_core.so
-vendor/lib64/libloc_ext.so
-vendor/lib64/liblocationservice.so
-vendor/lib64/libquipc_os_api.so
-vendor/lib64/libulp2.so
-
-vendor/lib/libizat_core.so
-vendor/lib64/libizat_core.so
 
 # Adreno GPU
 etc/firmware/a225p5_pm4.fw
@@ -571,10 +551,6 @@ etc/firmware/sensorhubfw.bin
 lib/hw/sensors.msm8992.so
 lib64/hw/sensors.msm8992.so
 lib64/hw/sensorhub.msm8992.so
-
-# Lights
-lib64/hw/lights.msm8992.so
-lib/hw/lights.msm8992.so
 
 # Time (Linked to radio)
 bin/time_daemon
