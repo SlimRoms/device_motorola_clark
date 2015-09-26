@@ -53,8 +53,8 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-    device/moto/clark/configs/gps/gps.conf:system/etc/gps.conf \
-    device/moto/clark/configs/gps/izat.conf:system/etc/izat.conf
+    $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/configs/gps/izat.conf:system/etc/izat.conf
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
