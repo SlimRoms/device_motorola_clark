@@ -20,33 +20,15 @@
 # Everything in this directory will become public
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/fstab.qcom:root/fstab.qcom \
-    $(LOCAL_PATH)/twrp.fstab:recovery/root/etc/twrp.fstab
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/init.class_main.sh:root/init.class_main.sh \
-    $(LOCAL_PATH)/rootdir/init.mmi.block_perm.sh:root/init.mmi.block_perm.sh \
-    $(LOCAL_PATH)/rootdir/init.mmi.boot.sh:root/init.mmi.boot.sh \
-    $(LOCAL_PATH)/rootdir/init.mmi.diag_mdlog.rc:root/init.mmi.diag_mdlog.rc \
-    $(LOCAL_PATH)/rootdir/init.mmi.early_boot.sh:root/init.mmi.early_boot.sh \
-    $(LOCAL_PATH)/rootdir/init.mmi.touch.sh:root/init.mmi.touch.sh \
-    $(LOCAL_PATH)/rootdir/init.mmi.usb.rc:root/init.mmi.usb.rc \
-    $(LOCAL_PATH)/rootdir/init.mmi.usb.sh:root/init.mmi.usb.sh \
-    $(LOCAL_PATH)/rootdir/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
-    $(LOCAL_PATH)/rootdir/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh \
-    $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
-    $(LOCAL_PATH)/rootdir/init.qcom.sh:root/init.qcom.sh \
-    $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc \
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/sec_config:system/etc/sec_config
+    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
 # Input device files for clark
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-clark.conf:system/etc/thermal-engine-clark.conf
+    $(LOCAL_PATH)/configs/thermal/thermal-engine-clark.conf:system/etc/thermal-engine-clark.conf \
+    $(LOCAL_PATH)/configs/thermal/perf-profile0.conf:system/vendor/etc/perf-profile0.conf \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/sensorhub-blacklist.txt:system/etc/firmware/sensorhub-blacklist.txt
@@ -77,6 +59,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     libqsap_sdk \
+    ebtables \
+    ethertypes \
+    curl \
+    libnl_2 \
+    libbson \
+    libtinyxml \
     libxml2
 
 # Live Wallpapers
@@ -84,29 +72,9 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     librs_jni
 
+# Power
 PRODUCT_PACKAGES += \
-    gralloc.msm8992 \
-    hwcomposer.msm8992 \
-    copybit.msm8992 \
-    memtrack.msm8992 \
-    libqdutils \
-    libqdMetaData
-
-PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libstagefrighthw \
-    libOmxCore \
-    libmm-omxcore \
-    libOmxVdec \
-    libOmxVdecHevc \
-    libOmxVenc
-
-PRODUCT_PACKAGES += \
-    audio.primary.msm8992 \
-    audio.a2dp.default \
-    audio.usb.default \
-    audio.r_submix.default \
-    libaudio-resampler
+    power.msm8992
 
 # NFC packages
 PRODUCT_PACKAGES += \
@@ -119,12 +87,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.msm8992
 
-# Audio effects
-PRODUCT_PACKAGES += \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
-    libqcomvoiceprocessingdescriptors
-
+# Camera
 PRODUCT_PACKAGES += \
     libqomx_core \
     libmmcamera_interface \
@@ -137,7 +100,9 @@ PRODUCT_PACKAGES += \
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-    e2fsck
+    e2fsck \
+    make_ext4fs \
+    setup_fs
 
 # for off charging mode
 PRODUCT_PACKAGES += \
@@ -185,7 +150,49 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.fuse_sdcard=true \
     persist.fuse_sdcard=true
 
+# Display
+PRODUCT_PACKAGES += \
+    gralloc.msm8992 \
+    hwcomposer.msm8992 \
+    copybit.msm8992 \
+    memtrack.msm8992 \
+    liboverlay \
+    libqdutils \
+    libqdMetaData
+
+# Media
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libdivxdrmdecrypt \
+    libdashplayer \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVdecHevc \
+    libOmxVenc \
+    libstagefrighthw \
+    qcmediaplayer
+
+PRODUCT_BOOT_JARS += qcmediaplayer
+
 # Audio
+PRODUCT_PACKAGES += \
+    audio.primary.msm8992 \
+    audio_policy.msm8992 \
+    audio.a2dp.default \
+    audio.usb.default \
+    audio.r_submix.default
+
+PRODUCT_PACKAGES += \
+    libaudio-resampler \
+    libqcompostprocbundle \
+    libqcomvisualizer \
+    libqcomvoiceprocessingdescriptors \
+    libqcomvoiceprocessing
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdbdata/Bluetooth_cal.acdb:system/etc/acdbdata/Bluetooth_cal.acdb \
     $(LOCAL_PATH)/audio/acdbdata/General_cal.acdb:system/etc/acdbdata/General_cal.acdb \
@@ -204,6 +211,23 @@ PRODUCT_COPY_FILES += \
 
 ## Below here are confirmed important things 
 ## Do not edit
+
+PRODUCT_PACKAGES += \
+    init.class_main.sh \
+    fstab.qcom \
+    twrp.fstab \
+    init.mmi.boot.sh \
+    init.mmi.dtv.sh \
+    init.mmi.early_boot.sh \
+    init.mmi.touch.sh \
+    init.mmi.usb.rc \
+    init.mmi.usb.sh \
+    init.qcom.rc \
+    init.mmi.block_perm.sh \
+    init.mmi.diag_mdlog.rc \
+    init.qcom.sh \
+    ueventd.qcom.rc
+
 # Wifi Firmware
 PRODUCT_COPY_FILES += \
     kernel/motorola/msm8992/drivers/staging/qcacld-2.0/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
