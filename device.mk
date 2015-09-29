@@ -209,8 +209,8 @@ PRODUCT_COPY_FILES += \
     kernel/motorola/msm8992/drivers/staging/qcacld-2.0/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
     kernel/motorola/msm8992/drivers/staging/qcacld-2.0/firmware_bin/WCNSS_qcom_cfg.usb.ini:system/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.usb.ini \
     kernel/motorola/msm8992/drivers/staging/qcacld-2.0/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini \
-    device/moto/clark/wifi/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
-    device/moto/clark/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    $(LOCAL_PATH)/wifi/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
+    $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
