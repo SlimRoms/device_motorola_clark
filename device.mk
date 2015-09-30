@@ -224,7 +224,6 @@ PRODUCT_PACKAGES += \
     init.mmi.usb.sh \
     init.qcom.rc \
     init.mmi.block_perm.sh \
-    init.mmi.diag_mdlog.rc \
     init.qcom.sh \
     ueventd.qcom.rc
 
