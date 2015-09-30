@@ -12,7 +12,7 @@ $(call inherit-product, vendor/slim/config/common_full_phone.mk)
 $(call inherit-product, vendor/slim/config/nfc_enhanced.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/motorola/clark/aosp_clark.mk)
+$(call inherit-product, device/motorola/clark/full_clark.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/motorola/clark/overlay
 

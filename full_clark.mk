@@ -32,8 +32,4 @@ PRODUCT_MANUFACTURER := motorola
 $(call inherit-product, device/motorola/clark/device.mk)
 $(call inherit-product-if-exists, vendor/motorola/clark/clark-vendor.mk)
 
-PRODUCT_NAME := aosp_clark
-
-PRODUCT_PACKAGES += \
-    Launcher3
 
