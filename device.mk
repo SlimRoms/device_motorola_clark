@@ -104,6 +104,12 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
+# ANT+
+PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library \
+    libantradio
+
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
@@ -217,7 +223,6 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     twrp.fstab \
     init.mmi.boot.sh \
-    init.mmi.dtv.sh \
     init.mmi.early_boot.sh \
     init.mmi.touch.sh \
     init.mmi.usb.rc \
