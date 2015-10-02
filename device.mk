@@ -85,7 +85,12 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8992
+    gps.msm8992 \
+    flp.conf \
+    gps.conf \
+    izat.conf \
+    quipc.conf \
+    sap.conf
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -248,7 +253,6 @@ PRODUCT_PACKAGES += \
     hostapd \
     libwpa_client \
     wpa_supplicant
-
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
