@@ -80,8 +80,6 @@ etc/firmware/rampatch_tlv_2.1.tlv
 etc/firmware/rampatch_tlv_3.0.tlv
 vendor/lib/libbtnv.so
 vendor/lib64/libbtnv.so
-lib/libbt-vendor.so
-lib64/libbt-vendor.so
 
 # Camera
 bin/mm-qcamera-app
@@ -353,8 +351,6 @@ bin/loc_launcher
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
-lib/libgps.utils.so
-lib64/libgps.utils.so
 lib/libloc_core.so
 lib64/libloc_core.so
 lib/libloc_eng.so
