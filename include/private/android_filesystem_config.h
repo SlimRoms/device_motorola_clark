@@ -102,6 +102,8 @@
 #define AID_QCOM_DIAG     3009  /* can read/write /dev/diag */
 #define AID_IMS           3010 /* can read/write /dev/socket/imsrtp */
 #define AID_SENSORS       3011 /* access to /dev/socket/sensor_ctl_socket & QCCI/QCSI */
+#define AID_RFS           3012  /* Remote Filesystem for peripheral processors */
+#define AID_RFS_SHARED    3013  /* Shared files for Remote Filesystem for peripheral processors  */
 #endif
 
 /* Motorola IDs */
@@ -210,6 +212,8 @@ static const struct android_id_info android_ids[] = {
     { "qcom_diag", AID_QCOM_DIAG, },
 #if !defined(QCOM_LEGACY_UIDS)
     { "sensors",       AID_SENSORS, },
+    { "rfs",           AID_RFS, },
+    { "rfs_shared",    AID_RFS_SHARED, },
 #endif
     /* Motorola IDs */
     { "mot_accy",  AID_MOT_ACCY, },
@@ -308,7 +312,6 @@ static const struct fs_path_config android_files[] = {
     { 06755, AID_ROOT,      AID_ROOT,      0, "system/xbin/librank" },
     { 06755, AID_ROOT,      AID_ROOT,      0, "system/xbin/procrank" },
     { 06755, AID_ROOT,      AID_ROOT,      0, "system/xbin/procmem" },
-    { 06755, AID_ROOT,      AID_ROOT,      0, "system/xbin/tcpdump" },
     { 04770, AID_ROOT,      AID_RADIO,     0, "system/bin/pppd-ril" },
 
     /* the following files have enhanced capabilities and ARE included in user builds. */
@@ -336,7 +339,7 @@ static inline void fs_config(const char *path, int dir,
                              unsigned *uid, unsigned *gid, unsigned *mode, uint64_t *capabilities)
 {
     const struct fs_path_config *pc;
-    int plen;
+    size_t plen;
 
     if (path[0] == '/') {
         path++;
@@ -345,7 +348,7 @@ static inline void fs_config(const char *path, int dir,
     pc = dir ? android_dirs : android_files;
     plen = strlen(path);
     for(; pc->prefix; pc++){
-        int len = strlen(pc->prefix);
+        size_t len = strlen(pc->prefix);
         if (dir) {
             if(plen < len) continue;
             if(!strncmp(pc->prefix, path, len)) break;
