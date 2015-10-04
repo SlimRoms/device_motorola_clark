@@ -1,0 +1,2 @@
+type adspd_data_file, file_type, data_file_type;
+type adspd_socket, file_type;
