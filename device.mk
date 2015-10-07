@@ -34,6 +34,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal/perf-profile0.conf:system/vendor/etc/perf-profile0.conf \
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/qmi_config.xml:system/etc/data/qmi_config.xml \
+    $(LOCAL_PATH)/configs/dsi_config.xml:system/etc/data/dsi_config.xml \
+    $(LOCAL_PATH)/configs/netmgr_config.xml:system/etc/data/netmgr_config.xml
+
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/sensorhub-blacklist.txt:system/etc/firmware/sensorhub-blacklist.txt
 
 # GPS
