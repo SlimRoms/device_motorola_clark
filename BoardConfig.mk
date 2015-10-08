@@ -185,7 +185,8 @@ BOARD_SEPOLICY_UNION += \
     rmt_storage.te \
     sysinit.te \
     system_server.te \
-    vold.te
+    vold.te \
+    ueventd.te
 
 # TWRP definitions
 DEVICE_RESOLUTION := 1440x2560
