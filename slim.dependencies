@@ -1,0 +1,7 @@
+[
+ {
+   "repository":  "SlimRoms/kernel_motorola_msm8992",
+   "target_path": "kernel/motorola/msm8992",
+   "branch":      "lp5.1"
+ }
+]
