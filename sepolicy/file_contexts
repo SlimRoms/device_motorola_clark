@@ -16,3 +16,6 @@
 
 # ril
 /dev/mot_hob_ram              u:object_r:radio_data_file:s0
+
+#CMHW
+/sys/vibrator/pwmvalue        u:object_r:vibeamp_sysfs:s0
