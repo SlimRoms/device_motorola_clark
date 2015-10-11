@@ -5,8 +5,8 @@
    "branch":      "lp5.1"
  },
  {
-   "repository":  "CyanogenMod/android_external_bson",
+   "repository":  "SlimRoms/android_external_bson",
    "target_path": "external/bson",
-   "branch":      "cm-12.1"
+   "branch":      "lp5.1"
  }
 ]
