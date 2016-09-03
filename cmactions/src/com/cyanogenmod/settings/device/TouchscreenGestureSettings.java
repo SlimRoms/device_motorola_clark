@@ -16,16 +16,11 @@
 
 package com.cyanogenmod.settings.device;
 
-import android.app.ActionBar;
-import android.content.Context;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
-import android.util.DisplayMetrics;
-import android.view.DisplayInfo;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.WindowManager;
+
+import org.cyanogenmod.internal.util.ScreenType;
 
 public class TouchscreenGestureSettings extends PreferenceActivity {
     private static final String CATEGORY_AMBIENT_DISPLAY = "ambient_display_key";
@@ -39,8 +34,6 @@ public class TouchscreenGestureSettings extends PreferenceActivity {
         if (ambientDisplayCat != null) {
             ambientDisplayCat.setEnabled(CMActionsSettings.isDozeEnabled(getContentResolver()));
         }
-        final ActionBar actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -51,24 +44,5 @@ public class TouchscreenGestureSettings extends PreferenceActivity {
         if (!isTablet(this)) {
             getListView().setPadding(0, 0, 0, 0);
         }
-    }
-
-    private static boolean isTablet(Context con) {
-        WindowManager wm = (WindowManager) con.getSystemService(Context.WINDOW_SERVICE);
-        DisplayInfo outDisplayInfo = new DisplayInfo();
-        wm.getDefaultDisplay().getDisplayInfo(outDisplayInfo);
-        int shortSize = Math.min(outDisplayInfo.logicalHeight, outDisplayInfo.logicalWidth);
-        int shortSizeDp =
-            shortSize * DisplayMetrics.DENSITY_DEFAULT / outDisplayInfo.logicalDensityDpi;
-        return shortSizeDp > 720;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            return true;
-        }
-        return false;
     }
 }
