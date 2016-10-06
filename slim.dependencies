@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "kernel_motorola_msm8992",
+    "target_path": "kernel/motorola/msm8992"
+  },
+  {
+    "repository": "hardware_sony_thermanager",
+    "target_path": "hardware/sony/thermanager"
+  }
+]
