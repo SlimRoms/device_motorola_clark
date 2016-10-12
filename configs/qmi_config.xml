@@ -431,7 +431,7 @@
        </list>
    </listitem>
 
-  <!-- Fusion 8096 9x55  parameters-->
+  <!-- Fusion 8096 + 9x55  parameters-->
   <listitem name = "fusion_8096_9x55_pcie">
     <data name="single_qmux_ch" type="int"> 1 </data>
     <data name="control_ports_len" type="int"> 2 </data>
@@ -471,5 +471,6 @@
       <data type="int"> 0 </data>
     </list>
   </listitem>
+
 </list>
 

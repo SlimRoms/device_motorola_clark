@@ -445,8 +445,7 @@
      </list>
    </listitem>
 
-
-   <!-- Configuration for Fusion 8096 9x55 PCIe -->
+   <!-- Configuration for Fusion 8096 + 9x55 PCIe -->
    <listitem name="fusion_8096_9x55_pcie">
      <data name="qos_enabled" type="int"> 0 </data>
      <data name="rmnet_data_enabled" type="int"> 1 </data>
