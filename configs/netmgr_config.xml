@@ -653,10 +653,6 @@
 
    </listitem>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8f5959a... clark: update various configs from reteu 6.0.1 (MPH24.107-58)
    <!-- MSM8992 parameters -->
    <listitem name = "msm8992">
 
@@ -1193,11 +1189,7 @@
      </list>
    </listitem>
 
-<<<<<<< HEAD
-  <!-- Fusion 8096 9x55 (PCIe) parameters -->
-=======
   <!-- Fusion 8096 + 9x55 (PCIe) parameters -->
->>>>>>> 8f5959a... clark: update various configs from reteu 6.0.1 (MPH24.107-58)
   <listitem name = "fusion_8096_9x55_pcie">
 
     <data name="use_qmuxd" type="int"> 1 </data>
